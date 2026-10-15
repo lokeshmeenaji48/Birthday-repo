@@ -1,0 +1,220 @@
+ <!DOCTYPE html>
+ <html lang="id">
+ 
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Happy Birthday</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+   <style>
+     * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+     }
+     
+     body {
+       background: linear-gradient(135deg, #ffe6e6, #ffb3b3, #ff8080);
+       font-family: 'Poppins', sans-serif;
+       min-height: 100vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       overflow-x: hidden;
+       position: relative;
+       color: #4a2e2b;
+     }
+     
+     /* Floating Hearts Animation Background */
+     .hearts-container {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       overflow: hidden;
+       z-index: 1;
+       pointer-events: none;
+     }
+     
+     .heart {
+       position: absolute;
+       background: rgba(255, 105, 180, 0.6);
+       width: 20px;
+       height: 20px;
+       transform: rotate(45deg);
+       animation: floatUp 6s linear infinite;
+     }
+     
+     .heart::before,
+     .heart::after {
+       content: '';
+       position: absolute;
+       width: 20px;
+       height: 20px;
+       background: rgba(255, 105, 180, 0.6);
+       border-radius: 50%;
+     }
+     
+     .heart::before {
+       top: -10px;
+       left: 0;
+     }
+     
+     .heart::after {
+       top: 0;
+       left: -10px;
+     }
+     
+     @keyframes floatUp {
+       0% {
+         transform: translateY(100vh) rotate(45deg) scale(0.6);
+         opacity: 1;
+       }
+       
+       100% {
+         transform: translateY(-10vh) rotate(45deg) scale(1.2);
+         opacity: 0;
+       }
+     }
+     
+     /* Card Container */
+     .card {
+       position: relative;
+       z-index: 2;
+       background: rgba(255, 255, 255, 0.85);
+       backdrop-filter: blur(10px);
+       padding: 40px 30px;
+       border-radius: 25px;
+       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+       max-width: 550px;
+       width: 90%;
+       text-align: center;
+       border: 2px solid rgba(255, 255, 255, 0.6);
+       animation: fadeIn 1.5s ease-in-out;
+     }
+     
+     @keyframes fadeIn {
+       from {
+         opacity: 0;
+         transform: translateY(20px);
+       }
+       
+       to {
+         opacity: 1;
+         transform: translateY(0);
+       }
+     }
+     
+     .title {
+       font-family: 'Sacramento', cursive;
+       font-size: 3.5rem;
+       color: #d63384;
+       margin-bottom: 10px;
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+     }
+     
+     .subtitle {
+       font-weight: 700;
+       font-size: 1.3rem;
+       color: #5c3a21;
+       margin-bottom: 25px;
+       letter-spacing: 0.5px;
+     }
+     
+     .message-box {
+       background: #fff0f3;
+       border-left: 5px solid #ff4d6d;
+       padding: 20px;
+       border-radius: 10px;
+       text-align: left;
+       font-size: 1.05rem;
+       line-height: 1.8;
+       color: #593933;
+       box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
+       margin-bottom: 25px;
+     }
+     
+     .footer-note {
+       font-weight: 600;
+       font-size: 1.1rem;
+       color: #d63384;
+       margin-top: 15px;
+     }
+     
+     .btn {
+       background: linear-gradient(45deg, #ff4d6d, #ff758c);
+       color: white;
+       border: none;
+       padding: 12px 30px;
+       font-size: 1rem;
+       font-weight: 600;
+       border-radius: 50px;
+       cursor: pointer;
+       box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+       transition: all 0.3s ease;
+       text-decoration: none;
+       display: inline-block;
+       margin-top: 10px;
+     }
+     
+     .btn:hover {
+       transform: translateY(-3px);
+       box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+     }
+   </style>
+ </head>
+ 
+ <body>
+   
+   <!-- Floating Background Hearts -->
+   <div class="hearts-container" id="heartsContainer"></div>
+   
+   <div class="card">
+     <h1 class="title">Happy Birthday</h1>
+     <div class="subtitle">My Habu ✨</div>
+     
+     <div class="message-box">
+       <p>Happy Birthday to most favorite person of my life I don't know where to start but I have a lot to say to you Today is your birthday is the best day and for you to relax and enjoy the best things in your life.
+       I just want you to be happy and crazy, but mainly happy. On your birthday, here are some words of wisdom, "smile while you have teeth"
+
+I just want you to know that you're so precious to me.
+
+I hope that this year brings you everything that you hope it will.
+
+Always remember that my prayers are always with you in all the good and bad times in life. May all your wishes come true with Bholenath'S grace and you have another year of your life full of laughter and joy.</p>
+       <br>
+       
+     </div>
+     
+   </div>
+   
+   <script>
+     // Generate floating hearts dynamically
+     function createHeart() {
+       const container = document.getElementById('heartsContainer');
+       const heart = document.createElement('div');
+       heart.classList.add('heart');
+       
+       // Random styling for each heart
+       const size = Math.random() * 15 + 10;
+       heart.style.width = `${size}px`;
+       heart.style.height = `${size}px`;
+       
+       heart.style.left = Math.random() * 100 + 'vw';
+       heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+       heart.style.opacity = Math.random() * 0.5 + 0.3;
+       
+       container.appendChild(heart);
+       
+       // Remove heart after animation completes
+       setTimeout(() => {
+         heart.remove();
+       }, 6000);
+     }
+     
+     setInterval(createHeart, 300);
+   </script>
+ </body>
+ 
+ </html>
